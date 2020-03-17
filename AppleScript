@@ -1,0 +1,233 @@
+(* 
+bit.ly/下載_鱫鰰macOS實鰣鮦步_dmg 
+GitHub.com/VirgoEros/ErosRealTimeSync/blob/master/AppleScript 
+*)
+--------------------------∞ 鱫鰰macOS實鰣鮦步 ∞----------------------------------ON. 
+global ErosSyncMode, SyncMode, OpenScript, ErosRealTimeSync, SyncSource, SyncDest, ErosRealTimeSyncLogsFile, APPitemPath, rsyncPath_ParametersPlus, rsyncPath_ParametersMinus, isDone, itemPath, itemProgress, firstRun, RT_Seconds, RT_Option, RT_Option_HDW, errmsg, errnbr
+global ErosSyncMode, firstRun, RT_Seconds, ErosRealTimeSync, rsyncPath_ParametersPlus, SyncSource, SyncDest, ErosRealTimeSyncLogsFile, RT_Option, RT_Option_HDW, errmsg, errnbr
+global OpenScript, OpenAppScript, errmsg, errnbr
+
+on run
+	try
+		tell application "Finder"
+			set {button returned:ErosSyncMode} to ¬
+				display dialog {" 
+請鰛鰇鱮美鱺沝療癒鯀女鰰選擇 鮦步選項 唷💋"} buttons ¬
+					{"鱓次鮦步&實鰣鮦步", "開啟腳本", "退出"} with title ¬
+					{"鱫鰰macOS實鰣鮦步"}
+			
+			if ErosSyncMode is "開啟腳本" then run script OpenScript
+			if ErosSyncMode is "退出" then continue quit
+			
+			if ErosSyncMode is "鱓次鮦步&實鰣鮦步" then
+				set {button returned:SyncMode} to ¬
+					display dialog {" 
+請鰛鰇鱮美鱺沝療癒鯀女鰰選擇 鮦步選項 唷💋"} buttons ¬
+						{"鱓次鮦步", "實鰣鮦步"} with title ¬
+						{"鱫鰰macOS實鰣鮦步"}
+				set {button returned:ErosRealTimeSync} to ¬
+					display dialog {" 
+請鰛鰇鱮美鱺沝療癒鯀女鰰選擇欲鮦步之模式唷💋"} buttons ¬
+						{"雙向A<+>B鮦步", "鱓向A+>B鮦步", "鱓向A->B鮦步"} with title ¬
+						{"鱫鰰macOS實鰣鮦步"}
+				set SyncSource to ¬
+					(choose folder with prompt " 
+請沝療癒鯀女鰰選擇 A:來源資料夾 唷💋" default location (path to (users folder)))
+				set SyncDest to ¬
+					(choose folder with prompt " 
+請沝療癒鯀女鰰選擇 B:目標資料夾 唷💋" default location (path to (startup disk)))
+				set ErosRealTimeSyncLogsFile to ¬
+					(((path to library folder from user domain) as text) & "logs:rsync.txt")
+				set APPitemPath to POSIX path of (path to me as text) ¬
+					& {"Contents/MacOS/rsync"}
+				set APPitemPath to quoted form of APPitemPath
+				set rsyncPath_ParametersPlus to ¬
+					(APPitemPath & " -ESWPaudvxh80AX --stats --exclude={.*,} ")
+				set rsyncPath_ParametersMinus to ¬
+					(APPitemPath & " -ESWPaudvxh80AX --delete --stats --exclude={.*,} ")
+				if SyncMode is "鱓次鮦步" then
+					if ErosRealTimeSync is "雙向A<+>B鮦步" then
+						display notification with title ("鮦步中唷💋")
+						(do shell script ¬
+							rsyncPath_ParametersPlus & ¬
+							quoted form of POSIX path of SyncSource & " " & ¬
+							quoted form of POSIX path of SyncDest)
+						(do shell script ¬
+							rsyncPath_ParametersPlus & ¬
+							quoted form of POSIX path of SyncDest & " " & ¬
+							quoted form of POSIX path of SyncSource)
+						delay 1
+						set isDone to false
+						set itemPath to ("rsync ")
+						set itemProgress to "ps ax | grep -v grep | grep " & itemPath
+						repeat while isDone is false
+							try
+								do shell script itemProgress
+								if the result contains itemPath then
+									delay 1
+								else
+									set isDone to true
+								end if
+							on error
+								set isDone to true
+							end try
+						end repeat
+						if isDone is true then
+							display notification with title ("鮦步鯇成鰳唷💋")
+							do shell script ("open " & quoted form of POSIX path of SyncDest)
+							continue quit
+						end if
+					end if
+					if ErosRealTimeSync is "鱓向A+>B鮦步" then
+						display notification with title ("鮦步中唷💋")
+						(do shell script ¬
+							rsyncPath_ParametersPlus & ¬
+							quoted form of POSIX path of SyncSource & " " & ¬
+							quoted form of POSIX path of SyncDest)
+						delay 1
+						set isDone to false
+						set itemPath to ("rsync ")
+						set itemProgress to "ps ax | grep -v grep | grep " & itemPath
+						repeat while isDone is false
+							try
+								do shell script itemProgress
+								if the result contains itemPath then
+									delay 1
+								else
+									set isDone to true
+								end if
+							on error
+								set isDone to true
+							end try
+						end repeat
+						if isDone is true then
+							display notification with title ("鮦步鯇成鰳唷💋")
+							do shell script ("open " & quoted form of POSIX path of SyncDest)
+							continue quit
+						end if
+					end if
+					if ErosRealTimeSync is "鱓向A->B鮦步" then
+						display notification with title ("鮦步中唷💋")
+						(do shell script ¬
+							rsyncPath_ParametersMinus & ¬
+							quoted form of POSIX path of SyncSource & " " & ¬
+							quoted form of POSIX path of SyncDest)
+						delay 1
+						set isDone to false
+						set itemPath to ("rsync ")
+						set itemProgress to "ps ax | grep -v grep | grep " & itemPath
+						repeat while isDone is false
+							try
+								do shell script itemProgress
+								if the result contains itemPath then
+									delay 1
+								else
+									set isDone to true
+								end if
+							on error
+								set isDone to true
+							end try
+						end repeat
+						if isDone is true then
+							display notification with title ("鮦步鯇成鰳唷💋")
+							do shell script ("open " & quoted form of POSIX path of SyncDest)
+							continue quit
+						end if
+					end if
+				end if
+				if SyncMode is "實鰣鮦步" then
+					set firstRun to true
+					set RT_Seconds to ("")
+					set {button returned:RT_Option} to ¬
+						display dialog {" 
+請鰛鰇鱮美鱺沝療癒鯀女鰰選擇 鮦步間隔鱓位 唷💋"} buttons ¬
+							{"秒", "魵", "鰣 日 週"} with title ¬
+							{"鱫鰰macOS實鰣鮦步"}
+					if RT_Option is "秒" then return RT_Seconds
+					if RT_Option is "魵" then return {RT_Seconds * minutes}
+					if RT_Option is "鰣 日 週" then
+						set {button returned:RT_Option_HDW} to ¬
+							display dialog {" 
+請鰛鰇鱮美鱺沝療癒鯀女鰰選擇 鮦步間隔鱓位 唷💋"} buttons ¬
+								{"鰣", "日", "週"} with title ¬
+								{"鱫鰰macOS實鰣鮦步"}
+						if RT_Option_HDW is "鰣" then return {RT_Seconds * hours}
+						if RT_Option_HDW is "日" then return {RT_Seconds * days}
+						if RT_Option_HDW is "週" then return {RT_Seconds * weeks}
+					end if
+				end if
+			end if
+		end tell
+	on error errmsg number errnbr
+		if errnbr = -128 then continue quit
+		continue quit
+	end try
+end run
+
+on idle
+	try
+		if SyncMode is "實鰣鮦步" then
+			if firstRun then
+				tell application "Finder" to display dialog {"請沝女鰰鰎魞間隔數字，倘鰙鰡空鱂以最小間隔值鮦步唷💋"} default answer ("") with title ¬
+					{"鱫鰰macOS實鰣鮦步"}
+				set RT_Seconds to ((text returned of the result) as integer)
+				if RT_Seconds is "" then return continue quit
+				set firstRun to false
+			else
+				try
+					if ErosRealTimeSync is "雙向A<+>B鮦步" then
+						(do shell script ¬
+							rsyncPath_ParametersPlus & ¬
+							quoted form of POSIX path of SyncSource & " " & ¬
+							quoted form of POSIX path of SyncDest & " >> " & ¬
+							quoted form of POSIX path of ErosRealTimeSyncLogsFile)
+						(do shell script ¬
+							rsyncPath_ParametersPlus & ¬
+							quoted form of POSIX path of SyncDest & " " & ¬
+							quoted form of POSIX path of SyncSource & " >> " & ¬
+							quoted form of POSIX path of ErosRealTimeSyncLogsFile)
+					end if
+					if ErosRealTimeSync is "鱓向A+>B鮦步" then
+						(do shell script ¬
+							rsyncPath_ParametersPlus & ¬
+							quoted form of POSIX path of SyncSource & " " & ¬
+							quoted form of POSIX path of SyncDest & " >> " & ¬
+							quoted form of POSIX path of ErosRealTimeSyncLogsFile)
+					end if
+					if ErosRealTimeSync is "鱓向A->B鮦步" then
+						(do shell script ¬
+							rsyncPath_ParametersMinus & ¬
+							quoted form of POSIX path of SyncSource & " " & ¬
+							quoted form of POSIX path of SyncDest & " >> " & ¬
+							quoted form of POSIX path of ErosRealTimeSyncLogsFile)
+					end if
+				end try
+			end if
+			if firstRun is "" then return seconds
+			if RT_Option is "秒" then return RT_Seconds
+			if RT_Option is "魵" then return {RT_Seconds * minutes}
+			if RT_Option_HDW is "鰣" then return {RT_Seconds * hours}
+			if RT_Option_HDW is "日" then return {RT_Seconds * days}
+			if RT_Option_HDW is "週" then return {RT_Seconds * weeks}
+		end if
+	on error errmsg number errnbr
+		if errnbr = -128 then continue quit
+	end try
+end idle
+------------------------ 開啟腳本 ------------------------ON. 
+script OpenScript
+	try
+		set OpenAppScript to POSIX path of (path to me as text) & ("Contents/Resources/Scripts/main.scpt")
+		set OpenAppScript to quoted form of OpenAppScript
+		do shell script ("open " & OpenAppScript)
+		display notification with title ("腳本已開啟鰳唷💋")
+		continue quit
+	on error errmsg number errnbr
+		if errnbr = -128 then continue quit
+		continue quit
+	end try
+end script
+--------------------------∞ 鱫鰰macOS實鰣鮦步 ∞------------------------------END. 
+
+
+-- 
