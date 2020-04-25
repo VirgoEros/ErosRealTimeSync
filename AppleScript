@@ -3,7 +3,7 @@ bit.ly/下載_鱫鰰macOS實鰣鮦步_dmg
 GitHub.com/VirgoEros/ErosRealTimeSync/blob/master/AppleScript 
 *)
 --------------------------∞ 鱫鰰macOS實鰣鮦步 ∞----------------------------------ON. 
-global ErosSyncMode, SyncMode, OpenScript, ErosRealTimeSync, SyncSource, SyncDest, ErosRealTimeSyncLogsFile, APPitemPath, rsyncPath_ParametersPlus, rsyncPath_ParametersMinus, isDone, itemPath, itemProgress, firstRun, RT_Seconds, RT_Option, RT_Option_HDW, errmsg, errnbr
+global ErosSyncMode, OpenScript, SyncMode, ErosRealTimeSync, SyncSource, SyncDest, ErosRealTimeSyncLogsFile, APPitemPath, rsyncPath_ParametersPlus, rsyncPath_ParametersMinus, isDone, itemPath, itemProgress, firstRun, RT_Seconds, RT_Option, RT_Option_HDW, errmsg, errnbr
 global ErosSyncMode, firstRun, RT_Seconds, ErosRealTimeSync, rsyncPath_ParametersPlus, SyncSource, SyncDest, ErosRealTimeSyncLogsFile, RT_Option, RT_Option_HDW, errmsg, errnbr
 global OpenScript, OpenAppScript, errmsg, errnbr
 
