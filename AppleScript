@@ -138,7 +138,7 @@ on run
 				if SyncMode is "實鰣鮦步" then
 					set firstRun to true
 					set RT_Seconds to ("")
-					set {button returned:RT_Option} to ¬
+					tell application "Finder" to set {button returned:RT_Option} to ¬
 						display dialog {" 
 請鰛鰇鱮美鱺沝療癒鯀女鰰選擇 鮦步間隔鱓位 唷💋"} buttons ¬
 							{"秒", "魵", "鰣 日 週"} with title ¬
@@ -146,7 +146,7 @@ on run
 					if RT_Option is "秒" then return RT_Seconds
 					if RT_Option is "魵" then return {RT_Seconds * minutes}
 					if RT_Option is "鰣 日 週" then
-						set {button returned:RT_Option_HDW} to ¬
+						tell application "Finder" to set {button returned:RT_Option_HDW} to ¬
 							display dialog {" 
 請鰛鰇鱮美鱺沝療癒鯀女鰰選擇 鮦步間隔鱓位 唷💋"} buttons ¬
 								{"鰣", "日", "週"} with title ¬
