@@ -1,7 +1,6 @@
-(* 
-bit.ly/下載_鱫鰰macOS實鰣鮦步_dmg 
-GitHub.com/VirgoEros/ErosRealTimeSync/blob/master/AppleScript 
-*)
+
+
+
 --------------------------∞ 鱫鰰macOS實鰣鮦步 ∞----------------------------------ON. 
 global ErosSyncMode, OpenScript, SyncMode, ErosRealTimeSync, SyncSource, SyncDest, ErosRealTimeSyncLogsFile, APPitemPath, rsyncPath_ParametersPlus, rsyncPath_ParametersMinus, isDone, itemPath, itemProgress, firstRun, RT_Seconds, RT_Option, RT_Option_HDW, errmsg, errnbr
 global SyncMode, firstRun, RT_Seconds, ErosRealTimeSync, rsyncPath_ParametersPlus, SyncSource, SyncDest, ErosRealTimeSyncLogsFile, RT_Option, RT_Option_HDW, errmsg, errnbr
@@ -42,9 +41,9 @@ on run
 					& {"Contents/MacOS/rsync"}
 				set APPitemPath to quoted form of APPitemPath
 				set rsyncPath_ParametersPlus to ¬
-					(APPitemPath & " -ESWPaudvxh80AX --stats --exclude={.*,} ")
+					(APPitemPath & " -arpogxmqEAXUNHWS --stats --exclude={.*,} ")
 				set rsyncPath_ParametersMinus to ¬
-					(APPitemPath & " -ESWPaudvxh80AX --delete --stats --exclude={.*,} ")
+					(APPitemPath & " -arpogxmqEAXUNHWS --delete --stats --exclude={.*,} ")
 				if SyncMode is "鱓次鮦步" then
 					if ErosRealTimeSync is "雙向A<+>B鮦步" then
 						display notification with title ("鮦步中唷💋")
@@ -58,7 +57,7 @@ on run
 							quoted form of POSIX path of SyncSource)
 						delay 1
 						set isDone to false
-						set itemPath to ("rsync ")
+						set itemPath to (APPitemPath)
 						set itemProgress to "ps ax | grep -v grep | grep " & itemPath
 						repeat while isDone is false
 							try
@@ -86,7 +85,7 @@ on run
 							quoted form of POSIX path of SyncDest)
 						delay 1
 						set isDone to false
-						set itemPath to ("rsync ")
+						set itemPath to (APPitemPath)
 						set itemProgress to "ps ax | grep -v grep | grep " & itemPath
 						repeat while isDone is false
 							try
@@ -114,7 +113,7 @@ on run
 							quoted form of POSIX path of SyncDest)
 						delay 1
 						set isDone to false
-						set itemPath to ("rsync ")
+						set itemPath to (APPitemPath)
 						set itemProgress to "ps ax | grep -v grep | grep " & itemPath
 						repeat while isDone is false
 							try
